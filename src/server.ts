@@ -12,7 +12,6 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Express Ayarları
-app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -21,7 +20,7 @@ app.use(session({
     secret: process.env.SESSION_SECRET || 'default_secret_key',
     resave: false,
     saveUninitialized: true,
-    cookie: { secure: true, httpOnly: true, sameSite: 'lax' } // Profesyonel ayarlar
+    cookie: { secure: true, httpOnly: true, sameSite: 'lax' }
 }));
 
 // "Giriş yapmış mı" kontrolü
@@ -72,5 +71,4 @@ app.post('/register', async (req, res) => {
 // GİRİŞ SAYFALARI
 app.get('/login', (req, res) => {
   const html = `
-    <style> body { font-family: sans-serif; background: #222; color: #fff; display: flex; justify-content: center; align-items: center; height: 100vh; margin:0; } form { background: #333; padding: 2rem; border-radius: 8px; width: 300px; } div { margin-bottom: 1rem; } label { display: block; margin-bottom: 0.5rem; } input { width: 100%; padding: 0.5rem; border: 1px solid #555; border-radius: 4px; background: #444; color: #fff; box-sizing: border-box; } button { width: 100%; padding: 0.7rem; background: #28a745; color: #fff; border: none; border-radius: 4px; cursor: pointer; font-size: 1rem; } h1 { text-align: center; } </style>
-    <form action
+    <style> body { font-family: sans-serif; background: #222; color: #fff; display: flex; justify-content: center; align-items: center; height: 100vh; margin:0; } form { background: #333; padding: 2rem; border-radius: 8px; width: 300px; } div { margin-bottom: 1rem; } label
